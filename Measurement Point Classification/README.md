@@ -1,5 +1,4 @@
-# Dictionary
-
+# Vocabulary
 The following are the models that get applied on each shot. They are agnostic to whether overall we are training on single shot,
 entire measurement point (MP) or just the central grid (4x4).
 The different approaches correspond simply to different batch sizes for the inputs. My use of the term "batch" here is not to be 
@@ -7,14 +6,13 @@ confused with TensorFlow usage - i.e. model.fit(batch_size=x) - if the model get
 is going to be a batch of 64 shots.
 
 ### Shot-level Models
--dnn_0: Fully Connected model with 0 hidden layers. Output is softmax with 8 nodes.
-
--dnn_1: Fully Connected model with 1 hidden layers. Output is softmax with 8 nodes.
+* dnn_0: Fully Connected model with 0 hidden layers. Output is softmax with 8 nodes.
+* dnn_1: Fully Connected model with 1 hidden layers. Output is softmax with 8 nodes.
 	Input --> 256 relu layer --> dropout (p=0.01) --> output
--dnn_3: Fully Connected model with 3 hidden layers. Output is softmax with 8 nodes. 
+* dnn_3: Fully Connected model with 3 hidden layers. Output is softmax with 8 nodes. 
 	LAYER(X) = X relu layer --> dropout (p=0.01)
 	Input --> LAYER(512) --> LAYER(256) --> LAYER(128) --> output
--dnn_5: Fully Connected model with 5 hidden layers. Output is softmax with 8 nodes.
+* dnn_5: Fully Connected model with 5 hidden layers. Output is softmax with 8 nodes.
 	Input --> LAYER(1024) --> LAYER(1024) --> LAYER(512) --> LAYER(256) --> LAYER(128) --> output
 
 
