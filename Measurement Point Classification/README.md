@@ -1,11 +1,12 @@
-Dictionary
+# Dictionary
 
 The following are the models that get applied on each shot. They are agnostic to whether overall we are training on single shot,
 entire measurement point (MP) or just the central grid (4x4).
 The different approaches correspond simply to different batch sizes for the inputs. My use of the term "batch" here is not to be 
-confused with TensorFlow usage - i.e. model.fit(batch_size=x) - if the model gets in input the entire MP then *one* input (for TensorFlow)
+confused with TensorFlow usage - i.e. model.fit(batch_size=x) - if the model gets in input the entire MP then _one_ input (for TensorFlow)
 is going to be a batch of 64 shots.
 
+### Shot-level Models
 dnn_0: Fully Connected model with 0 hidden layers. Output is softmax with 8 nodes.
 dnn_1: Fully Connected model with 1 hidden layers. Output is softmax with 8 nodes.
 	Input --> 256 relu layer --> dropout (p=0.01) --> output
@@ -24,7 +25,7 @@ central_grid: model gets a batch of 16 inputs corresponding to the 4x4 central g
 
 
 
-Pooling:
+### Pooling Layers
 average: Average Pooling on the batch axis
 max: Max Pooling on the batch axis
 dnn: output of the shot model is flattened and an 8 node FCL softmax is applied on top.
