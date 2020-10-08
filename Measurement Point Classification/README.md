@@ -29,11 +29,11 @@ central_grid: model gets a batch of 16 inputs corresponding to the 4x4 central g
 
 
 ### Pooling Layers
-average: Average Pooling on the batch axis
-max: Max Pooling on the batch axis
-dnn: output of the shot model is flattened and an 8 node FCL softmax is applied on top.
-dnn_split: just like dnn, but model has 2 outputs; one before the flattening and one which is the default output. Both outputs
+* average: Average Pooling on the batch axis
+* max: Max Pooling on the batch axis
+* dnn: output of the shot model is flattened and an 8 node FCL softmax is applied on top.
+* dnn_split: just like dnn, but model has 2 outputs; one before the flattening and one which is the default output. Both outputs
 	get labels, losses and gradients.
-major_vote: The model below a gets a "shot" input (see above) and is trained with that. After training the model is evaluated on the test
+* major_vote: The model below a gets a "shot" input (see above) and is trained with that. After training the model is evaluated on the test
 	set by taking major vote. Notice that training set is a set of shot inputs, whilst test set is a set of MP inputs.
-standard: "shot" input and no pooling. This model has a set of shots as test_set instead of having MPs.
+* standard: "shot" input and no pooling. This model has a set of shots as test_set instead of having MPs.
